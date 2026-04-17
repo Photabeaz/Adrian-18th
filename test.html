@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Ulang Tahun Spesial</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="music-control" class="music-control hidden" onclick="toggleMusic()">
+    <img id="music-img-play" src="logoapolah.png" class="music-element rotating">
+    <img id="music-img-pause" src="logoPause.png" class="music-element hidden">
+</div>
+
+    <!-- Background Blurred Blobs -->
+    <div class="bg-blobs">
+        <div class="blob" style="top: 10%; left: -5%;"></div>
+        <div class="blob" style="bottom: 10%; right: -5%; animation-delay: -5s;"></div>
+        <div class="blob" style="top: 50%; left: 40%; width: 300px; height: 300px; opacity: 0.2;"></div>
+    </div>
+
+    <!-- Overlay Pembuka -->
+    <div id="opening-overlay">
+        <div class="text-center px-6" data-aos="zoom-in">
+            <p class="red-text tracking-widest uppercase mb-4 font-bold">Hello,</p>
+            <h1 id="guest-name" class="font-serif text-5xl md:text-7xl mb-6 glow-text">Tamu Undangan</h1>
+            <p class="mb-8 text-gray-300">Kamu diundang ke perayaan ulang tahun kami 
+                yang ke - 18Th</p>
+            <button onclick="openInvitation()" class="btn-red px-10 py-4 rounded-full shadow-lg text-lg tracking-wider">
+                BUKA UNDANGAN
+            </button>
+        </div>
+    </div>
+
+<audio id="background-music" loop preload="auto">
+    <source src="sound.mp3" type="audio/mpeg">
+    <source src="https://www.chosic.com/wp-content/uploads/2021/07/The-Grand-Selection-Range.mp3" type="audio/mpeg">
+</audio>
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-4xl mx-auto px-4 py-12">
+        
+        <!-- Section: Foto & Ucapan -->
+        <section class="text-center mb-24 mt-10">
+            <div id="avatar-container" class="relative inline-block mb-10" data-aos="fade-up">
+                <!-- Frame Merah dengan Efek API MEMBARA -->
+                <div id="adrian-avatar" class="w-52 h-52 md:w-72 md:h-72 rounded-full fire-border p-2 mx-auto overflow-hidden">
+                    <img src=adrian.jpg
+                         alt="Foto Teman" 
+                         class="w-full h-full object-cover rounded-full">
+                </div>
+
+                <div id="NamaAdrian" style="margin-top: 20px;">
+
+                <h2 id="NamaAdrian" class="font-serif text-4xl md:text-6xl glow-text mb-6 ">I Putu Adrian Putra Pratama</h2>
+                </div>
+                <!-- <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#660000] px-8 py-2 rounded-full border border-[#E60000] z-10 shadow-lg">
+                    <span class="font-serif italic text-xl red-text font-bold">Adrian Putra Pratama</span>
+                </div>
+                -->
+            </div>
+
+            <div id= "glass" class="glass p-8 md:p-12 mt-4 margin-top=10px" data-aos="fade-up">
+                <h2 class="font-serif text-4xl md:text-6xl glow-text mb-6">Birthday Celebration</h2>
+                <p class="text-gray-300 leading-relaxed text-lg italic">
+                    terserah dah kata kata lu mek
+                </p>
+            </div>
+        </section>
+
+        <!-- Section: Countdown -->
+        <section class="mb-24 text-center">
+            <h3 class="font-serif text-2xl red-text mb-8" data-aos="fade-down">Countdown</h3>
+            <div class="flex flex-wrap justify-center gap-4 text-center" data-aos="zoom-in">
+                <div class="timer-box">
+                    <div id="days" class="text-3xl font-bold">00</div>
+                    <div class="text-xs uppercase red-text font-bold">Hari</div>
+                </div>
+                <div class="timer-box">
+                    <div id="hours" class="text-3xl font-bold">00</div>
+                    <div class="text-xs uppercase red-text font-bold">Jam</div>
+                </div>
+                <div class="timer-box">
+                    <div id="minutes" class="text-3xl font-bold">00</div>
+                    <div class="text-xs uppercase red-text font-bold">Menit</div>
+                </div>
+                <div class="timer-box">
+                    <div id="seconds" class="text-3xl font-bold">00</div>
+                    <div class="text-xs uppercase red-text font-bold">Detik</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Acara & Lokasi -->
+        <section class="grid md:grid-cols-2 gap-8 mb-24">
+            <!-- Waktu -->
+            <div class="glass p-8 flex flex-col items-center justify-center text-center" data-aos="fade-right">
+                <div class="p-4 bg-[#000000] rounded-full mb-4 border border-[#E60000]">
+                    <img src="eiai.png" class="w-10 h-10" viewBox="0 0 24 24" stroke="currentColor">
+                     
+                </div>
+                <h4 class="font-serif text-2xl mb-2 glow-text">WAKTU</h4>
+                <p class="text-white font-bold text-xl">Jumat, 5 Mei 2026</p>
+                <p class="text-gray-400">19:00 WIB - Selesai</p>
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Birthday+Celebration+Adrian&dates=20260505T180000Z" 
+   target="_blank" class="btn-red px-8 py-2 rounded-lg text-sm">
+    SAVE THE DATE
+</a>
+            </div>
+
+            <!-- Lokasi -->
+            <div class="glass p-8 flex flex-col items-center justify-center text-center" data-aos="fade-left">
+                <div class="p-4 bg-[#000000] rounded-full mb-4 border border-[#E60000]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 red-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    </svg>
+                </div>
+                <h4 class="font-serif text-2xl mb-2 glow-text">LOKASI</h4>
+                <p class="text-gray-300 mb-4 px-4 text-sm">SRC Adrian, Br. Tua, Desa Tua, Kec. Marga</p>
+              <div class=>
+                <iframe src="https://www.google.com/maps/embed?pb=!4v1776411134540!6m8!1m7!1spKlLNW_lmjfts-7f5Ytv3Q!2m2!1d-8.410565662287087!2d115.1803468149233!3f198.2798613037448!4f-9.790180305131756!5f0.4000000000000002" 
+                relative inline-block mb-10 width="300" height="250" style="border:0; margin-bottom: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+                 </div>
+
+                <a href="https://maps.app.goo.gl/i1UJZanJJsFQxeZv9" target="_blank" class="btn-red px-8 py-2 rounded-lg text-sm">
+                    BUKA PETUNJUK LOKASI
+                </a>
+              
+            </div>
+        </section>
+
+        <!-- Section: Dress Code -->
+        <section class="text-center mb-24" data-aos="flip-up">
+            <div class="glass p-10 border-t-2 border-b-2 border-[#E60000]">
+                <h4 class="font-serif text-3xl red-text font-bold mb-6">Dress Code</h4>
+                <p class="text-gray-300 mb-6">Rayakan malam ini dengan nuansa pakaian:</p>
+                <div class="flex justify-center gap-12">
+                    <div class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-black rounded-full border-2 border-[#E60000] mb-2 shadow-[0_0_10px_rgba(230,0,0,0.4)]"></div>
+                        <span class="text-sm font-bold">Black</span>
+                    </div>
+
+
+                    <!--
+                    <div class="flex flex-col items-center">
+                        <div class="w-14 h-14 bg-[#8B0000] rounded-full border-2 border-white mb-2 shadow-[0_0_10px_rgba(230,0,0,0.4)]"></div>
+                        <span class="text-sm font-bold">Elegant Red</span>
+                    </div> 
+                -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Penutup -->
+        <section class="text-center mb-12" data-aos="zoom-in">
+            <p class="font-serif text-2xl italic mb-4 glow-text">"Kehadiranmu adalah hadiah terindah bagiku."</p>
+            <p class="text-gray-400 mb-20 px-6">Mohon doa restu dan kehadirannya di hari bahagia kami.</p>
+            
+            <hr class="border-[#4D0000] mb-8">
+            
+           <div class="text-center mt-20 mb-10">
+    <div class="text-gray-600 text-xs tracking-[0.3em] uppercase opacity-80">
+        Invitation Created by 
+    </div>
+    
+    <div class="flex items-center justify-center gap-2 mt-2">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             viewBox="0 0 24 24" 
+             fill="none" 
+             stroke="currentColor" 
+             stroke-width="1.5" 
+             stroke-linecap="round" 
+             stroke-linejoin="round" 
+             class="w-5 h-5 red-text">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span class="red-text tracking-normal text-sm">@Agusarya_306</span>
+    </div>
+</div>
+
+    </main>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+
+        
+        // Inisialisasi AOS dengan AOS REPEAT
+        AOS.init({
+            duration: 1000,
+            once: false, 
+            mirror: true 
+        });
+
+        // Ambil Nama Tamu dari URL Parameter (?to=Nama)
+        const urlParams = new URLSearchParams(window.location.search);
+        const to = urlParams.get('to');
+        if (to) {
+            document.getElementById('guest-name').innerText = to;
+        }
+
+        //z Fungsi Buka Undangan
+        // function openInvitation() {
+          //  const overlay = document.getElementById('opening-overlay');
+            //overlay.classList.add('hidden-overlay');
+        // }
+        
+
+        // Countdown Timer
+        const targetDate = new Date("May 05, 2026 18:00:00").getTime();
+
+        const updateTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (document.getElementById("days")) {
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            }
+
+            if (distance < 0) {
+                clearInterval(updateTimer);
+                if (document.getElementById("main-content")) {
+                    document.getElementById("main-content").innerHTML = "<h2 class='text-center red-text py-20 text-3xl font-serif glow-text'>Acara Sedang Berlangsung!</h2>";
+                }
+            }
+        }, 1000);
+
+        const avatar = document.getElementById('adrian-avatar');
+
+       function spawnBorderSpark() {
+    const spark = document.createElement('div');
+    spark.className = 'spark';
+    spark.style.position = 'absolute'; // WAJIB absolute agar ikut ter-scroll
+    
+    // Ukuran & Warna
+    const size = Math.random() * 3 + 2;
+    spark.style.width = `${size}px`;
+    spark.style.height = `${size}px`;
+    const colors = ['#FFAE00', '#FFF700', '#FFFFFF'];
+    spark.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+    // Kalkulasi Posisi berdasarkan posisi Avatar + Nilai Scroll
+    const rect = avatar.getBoundingClientRect();
+    const radius = rect.width / 2;
+    const angle = Math.random() * Math.PI * 2;
+    
+    // Menambahkan window.scroll agar koordinat tepat di atas elemen meskipun sudah di-scroll
+    const startX = rect.left + window.scrollX + radius + Math.cos(angle) * radius;
+    const startY = rect.top + window.scrollY + radius + Math.sin(angle) * radius;
+
+    spark.style.left = `${startX}px`;
+    spark.style.top = `${startY}px`;
+
+    document.body.appendChild(spark);
+
+    // Animasi melayang ke atas
+    const destX = (Math.random() - 0.5) * 50;
+    const destY = -(Math.random() * 80 + 20);
+
+    spark.animate([
+        { transform: 'translate(0, 0)', opacity: 1 },
+        { transform: `translate(${destX}px, ${destY}px)`, opacity: 0 }
+    ], {
+        duration: 1000,
+        easing: 'ease-out'
+    }).onfinish = () => spark.remove();
+}
+
+        document.addEventListener('DOMContentLoaded', function () {
+      const params = new URLSearchParams(window.location.search);
+      const namaTamu = params.get('to');
+      const valueSpan = document.querySelectorAll('.valueparam');
+
+      if (namaTamu) {
+        valueSpan.forEach(el => {
+          el.textContent = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
+        });
+      }
+    });
+
+
+const bgMusic = document.getElementById('background-music');
+const musicControl = document.getElementById('music-control');
+const imgPlay = document.getElementById('music-img-play');
+const imgPause = document.getElementById('music-img-pause');
+
+function openInvitation() {
+    const overlay = document.getElementById('opening-overlay');
+    if (overlay) overlay.classList.add('hidden-overlay');
+
+    if (bgMusic) {
+        bgMusic.play();
+        musicControl.classList.remove('hidden');
+        // Pastikan saat buka, gambar 'Play' yang muncul
+        imgPlay.classList.remove('hidden');
+        imgPause.classList.add('hidden');
+    }
+}
+
+function toggleMusic() {
+    if (bgMusic.paused) {
+        bgMusic.play();
+        // Tukar gambar ke Play
+        imgPlay.classList.remove('hidden');
+        imgPause.classList.add('hidden');
+       
+    } else {
+        bgMusic.pause();
+        // Tukar gambar ke Pause
+        imgPlay.classList.add('hidden');
+        imgPause.classList.remove('hidden');
+      
+    }
+}
+
+function spawnPageSpark() {
+    const spark = document.createElement('div');
+    spark.className = 'spark-bg';
+    spark.style.position = 'absolute';
+    
+    const size = Math.random() * 2 + 1;
+    spark.style.width = `${size}px`;
+    spark.style.height = `${size}px`;
+    spark.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+
+    // Muncul dari bawah tampilan layar saat ini
+    const startX = Math.random() * window.innerWidth;
+    const startY = window.scrollY + window.innerHeight; 
+
+    spark.style.left = `${startX}px`;
+    spark.style.top = `${startY}px`;
+
+    document.body.appendChild(spark);
+
+    // Melayang jauh ke atas
+    const destY = -(window.innerHeight * 0.5); // Melayang sejauh setengah layar ke atas
+
+    spark.animate([
+        { transform: 'translate(0, 0)', opacity: 0 },
+        { opacity: 1, offset: 0.2 },
+        { transform: `translate(0, ${destY}px)`, opacity: 0 }
+    ], {
+        duration: Math.random() * 3000 + 2000,
+        easing: 'linear'
+    }).onfinish = () => spark.remove();
+}
+
+
+
+function startEffect() {
+    // Spark di border avatar (lebih cepat)
+    setInterval(spawnBorderSpark, 100);
+    
+    // Spark di halaman (lebih lambat/jarang)
+    setInterval(spawnPageSpark, 300);
+}
+window.onload = startEffect;
+
+    </script>
+</body>
+</html>
